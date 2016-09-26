@@ -32,15 +32,19 @@ class GameViewController: UIViewController {
         }
     }
 
-    override func shouldAutorotate() -> Bool {
-        return true
+    open override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.current().userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get{
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                return .allButUpsideDown
+            } else {
+                return .all
+            }
         }
     }
 
@@ -49,7 +53,9 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
-        return true
+    open override var prefersStatusBarHidden: Bool {
+        get{
+            return true
+        }
     }
 }
